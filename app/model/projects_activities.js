@@ -1,4 +1,6 @@
-ProjectActivity = Backbone.Model.extend({
+ProjectActivity = Model.extend({
+  tests: ["project_id", "activity_id"],
+
   getActivities: function() {
     return activities.where({id: this.get("activity_id")});
   },

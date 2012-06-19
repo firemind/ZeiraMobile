@@ -1,5 +1,8 @@
-Booking = Backbone.Model.extend({
+Booking = Model.extend({
+  tests: ["id", "date", "start_time", "project_id", "activity_id"],
+  
   active: false,
+
   getActivity: function() {
     activities.where({id: this.activity_id})[0];
   },
@@ -21,7 +24,7 @@ Booking.openSession = function(data) {
 };
 
 Bookings = Collection.extend({
-  model: Project,
+  model: Booking,
   collectionName: "bookings",
 
   create_new: function(date, start_time, end_time, project_id, activity_id, comment) {
@@ -39,18 +42,11 @@ Bookings = Collection.extend({
     booking = new Booking(data);
     var jsonData = JSON.stringify({booking: booking.toJSON()});
 
-    $.ajax({
-      type: "POST",
-      url: this.url,
-      contentType: "application/json",
-      data: jsonData,
-      username: settings.get("username"),
-      password: settings.get("password")
-    });
+    $.post(this.getUrl("bookings"), jsonData);
   }
 });
 
 bookings = new Bookings();
 bookings.loadData();
 
-bookings.create_new("10/10/2000", "12:00", "13:00", 1, 1, "asdf");
+//bookings.create_new("10/10/2000", "12:00", "13:00", 1, 1, "asdf");

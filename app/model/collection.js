@@ -1,8 +1,8 @@
 Collection = Backbone.Collection.extend({
   loadData: function() {
     this.url = settings.getUrl(this.collectionName),
-    console.debug(this.url);
     this.fetch({error: this.loadStorage, success: this.saveStorage});
+    this.loadStorage(this);
   },
 
   loadStorage: function(collection) {

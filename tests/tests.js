@@ -1,7 +1,7 @@
-$(document).ready(function() {
+/*$(document).ready(function() {
   // events
   bookings.on("dataload", function() {
-    console.debug("bookings loaded");
+    console.debug("dataload: true");
   });
   bookings.loadData();
   
@@ -11,16 +11,4 @@ $(document).ready(function() {
   
   console.debug(project.getActivities()[0] == activity);
   console.debug(activity.getProjects()[0] == project);
-});
-$.ajax({
-  type: "GET",
-  url: "http://mobile.zeira.ch/activities/",
-  beforeSend: function(req) {
-    req.setRequestHeader('Authorization', 'Basic John:secret');
-  },
-  username: "John",
-  password: "secret",
-  success: function(txt) {
-    console.debug(txt);
-  }
-});
+});*/

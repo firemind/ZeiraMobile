@@ -1,7 +1,7 @@
 settings.edit("John", "secret");
 
 JSONStorage.set("projects", [{id: 1, name: "project1"}]);
-JSONStorage.set("activities", [{id: 1, name: "activitiy1"}]);
+JSONStorage.set("activities", [{id: 1, name: "activity1"}]);
 JSONStorage.set("activities_projects", [{project_id: 1, activity_id: 1}]);
 JSONStorage.set("bookings", [{
   id: 1,

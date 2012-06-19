@@ -12,6 +12,8 @@ Settings = Backbone.Model.extend({
 
   edit: function(username, password, url) {
     this.set(fillData(username, password, url));
+    this.save();
+    $.post(this.getUrl("login"), {username: username, password: password});
   }
 });
 
